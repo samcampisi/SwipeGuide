@@ -31,7 +31,7 @@ export const guidesReducer: Reducer<GuidesState, GuidesActions> = (
         );
       }
 
-      const guidesMap = { ...state.guidesMap, newGuides };
+      const guidesMap = { ...state.guidesMap, ...newGuides };
 
       return {
         ...state,

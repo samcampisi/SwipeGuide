@@ -56,11 +56,3 @@ export type ThunkResult = ThunkAction<
   undefined,
   GuidesActions
 >;
-
-export interface GuidesResponse {
-  data: IGuide[];
-}
-
-export interface GuideResponse {
-  data: IGuide;
-}

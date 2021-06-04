@@ -8,8 +8,6 @@ import {
   GuidesActionTypes,
   GuidesActions,
   ThunkResult,
-  GuidesResponse,
-  GuideResponse,
 } from './guides.actions.types';
 
 export const getGuides = (): ThunkResult => {
@@ -21,10 +19,12 @@ export const getGuides = (): ThunkResult => {
     return ApiService.getInstance()
       .getClient()!
       .get('/guides')
-      .then((response: AxiosResponse<GuidesResponse>) => {
-        dispatch(getGuidesSuccess(response.data.data));
+      .then((response: AxiosResponse<IGuide[]>) => {
+        console.warn('res', response);
+        dispatch(getGuidesSuccess(response.data));
       })
       .catch((error: AxiosError) => {
+        console.warn('err', error);
         if (error.request || error.response)
           return dispatch(getGuidesFailure(error));
       });
@@ -56,8 +56,8 @@ export const getGuideDetail = (id: number): ThunkResult => {
     return ApiService.getInstance()
       .getClient()!
       .get(`/guides/${id}`)
-      .then((response: AxiosResponse<GuideResponse>) => {
-        dispatch(getGuideDetailSuccess(response.data.data));
+      .then((response: AxiosResponse<IGuide>) => {
+        dispatch(getGuideDetailSuccess(response.data));
       })
       .catch((error: AxiosError) => {
         if (error.request || error.response)
