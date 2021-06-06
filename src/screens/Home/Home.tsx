@@ -1,10 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  View,
-  FlatList,
-  ListRenderItemInfo,
-  ActivityIndicator,
-} from 'react-native';
+import { View, FlatList, ListRenderItemInfo } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getGuides } from 'states/guides/guides.actions';
@@ -12,6 +7,7 @@ import styles from './Home.style';
 import { ApplicationState } from 'config/store';
 import { IGuide } from 'interfaces/IGuide';
 import GuideItem from 'components/GuideItem';
+import Spinner from 'components/Spinner';
 
 export interface HomeScreenProps {
   componentId: string;
@@ -60,7 +56,7 @@ const HomeScreen = (props: HomeScreenProps) => {
   return (
     <View style={styles.container} testID={props.testID}>
       {isLoadingGuides && !data.length ? (
-        <ActivityIndicator color="#dddddd" />
+        <Spinner fill />
       ) : (
         <FlatList
           data={data}
