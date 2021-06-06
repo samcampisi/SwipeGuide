@@ -6,7 +6,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    color: 'pink',
+    color: '#cf6dbc',
     fontSize: 12,
     textAlign: 'center',
   },

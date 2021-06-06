@@ -13,7 +13,7 @@ export default {
     buttonColor: '#dddddd',
     elevation: 5,
     title: {
-      color: '#cccccc',
+      color: '#cf6dbc',
       alignment: 'center',
     },
     background: {

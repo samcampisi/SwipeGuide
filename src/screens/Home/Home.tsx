@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, FlatList, ListRenderItemInfo } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getGuides } from 'states/guides/guides.actions';
+import { getGuides, likeGuide } from 'states/guides/guides.actions';
 import styles from './Home.style';
 import { ApplicationState } from 'config/store';
 import { IGuide } from 'interfaces/IGuide';
@@ -20,6 +20,9 @@ const HomeScreen = (props: HomeScreenProps) => {
   // Props from the reducers
   const guidesMap = useSelector(
     (state: ApplicationState) => state.guidesData.guidesMap,
+  );
+  const likes = useSelector(
+    (state: ApplicationState) => state.guidesData.likes,
   );
   const isLoadingGuides = useSelector(
     (state: ApplicationState) => state.guidesData.isLoadingGuides,
@@ -43,7 +46,10 @@ const HomeScreen = (props: HomeScreenProps) => {
         guide={info.item}
         onItemPress={() => {}}
         style={info.index % 2 === 0 ? undefined : styles.altItemStyle}
-        onLikeItemPress={() => {}}
+        onLikeItemPress={() => {
+          dispatch(likeGuide(info.item.Id));
+        }}
+        totalLikes={likes[info.item.Id]}
       />
     );
   };
