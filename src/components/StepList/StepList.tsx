@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ListRenderItemInfo, FlatList } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { IStep } from 'interfaces/IStep';
 import styles from './StepList.style';
@@ -12,14 +12,10 @@ export interface StepListProps {
 const StepList = (props: StepListProps) => {
   const { steps, testID } = props;
 
-  const extractKey = (item: IStep) => {
-    return item.Headline;
-  };
-
-  const renderItem = (item, index) => {
+  const renderItem = (item: IStep, index: number) => {
     return (
-      <View>
-        <Text>
+      <View style={styles.stepContainer} key={item.Headline}>
+        <Text style={styles.headline}>
           {index + 1}) <Text>{item.Headline}</Text>
         </Text>
         <Text>{item.Description}</Text>
@@ -28,8 +24,8 @@ const StepList = (props: StepListProps) => {
   };
 
   return (
-    <View testID={testID}>
-      <Text>Steps:</Text>
+    <View style={styles.container} testID={testID}>
+      <Text style={styles.title}>Steps:</Text>
       {steps.map((item, index) => {
         return renderItem(item, index);
       })}

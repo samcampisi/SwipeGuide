@@ -56,7 +56,7 @@ const GuideDetail = (props: GuideDetailProps) => {
         <Text style={styles.summary}>{guide.MainTaskSummary}</Text>
 
         {isLoadingGuides || !guidesMap[guide.Id].Steps ? (
-          <Spinner style={styles.spinner} />
+          <Spinner style={styles.spinner} size="small" />
         ) : (
           <StepList steps={guidesMap[guide.Id].Steps} />
         )}

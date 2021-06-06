@@ -1,9 +1,19 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  fill: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  container: {
+    marginBottom: 24,
+  },
+  title: {
+    fontSize: 16,
+    marginBottom: 16,
+    alignSelf: 'center',
+  },
+  stepContainer: {
+    marginBottom: 24,
+  },
+  headline: {
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
 });
