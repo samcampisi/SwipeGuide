@@ -2,9 +2,14 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    minHeight: 48,
-    backgroundColor: '#ffffff',
+    flexDirection: 'row',
+    minWidth: '100%',
+    height: 52,
+    alignItems: 'center',
     paddingHorizontal: 16,
+  },
+  title: {
+    flex: 1,
+    marginRight: 8,
   },
 });

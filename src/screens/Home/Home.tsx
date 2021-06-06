@@ -43,6 +43,7 @@ const HomeScreen = (props: HomeScreenProps) => {
         guide={info.item}
         onItemPress={() => {}}
         style={info.index % 2 === 0 ? undefined : styles.altItemStyle}
+        onLikeItemPress={() => {}}
       />
     );
   };
