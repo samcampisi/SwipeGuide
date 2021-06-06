@@ -18,7 +18,7 @@ const StepList = (props: StepListProps) => {
         <Text style={styles.headline}>
           {index + 1}) <Text>{item.Headline}</Text>
         </Text>
-        <Text>{item.Description}</Text>
+        {Boolean(item.Description) && <Text>{item.Description}</Text>}
       </View>
     );
   };
