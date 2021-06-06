@@ -8,6 +8,7 @@ import { ApplicationState } from 'config/store';
 import { IGuide } from 'interfaces/IGuide';
 import GuideItem from 'components/GuideItem';
 import Spinner from 'components/Spinner';
+import Router from 'utils/Router';
 
 export interface HomeScreenProps {
   componentId: string;
@@ -44,7 +45,9 @@ const HomeScreen = (props: HomeScreenProps) => {
     return (
       <GuideItem
         guide={info.item}
-        onItemPress={() => {}}
+        onItemPress={() => {
+          Router.goToGuideDetail(props.componentId, info.item);
+        }}
         style={info.index % 2 === 0 ? undefined : styles.altItemStyle}
         onLikeItemPress={() => {
           dispatch(likeGuide(info.item.Id));
