@@ -6,4 +6,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  altItemStyle: {
+    backgroundColor: '#fff0fd',
+  },
+  separator: {
+    height: 1,
+    width: '100%',
+    backgroundColor: '#e8cfe5',
+  },
 });

@@ -20,11 +20,9 @@ export const getGuides = (): ThunkResult => {
       .getClient()!
       .get('/guides')
       .then((response: AxiosResponse<IGuide[]>) => {
-        console.warn('res', response);
         dispatch(getGuidesSuccess(response.data));
       })
       .catch((error: AxiosError) => {
-        console.warn('err', error);
         if (error.request || error.response)
           return dispatch(getGuidesFailure(error));
       });
