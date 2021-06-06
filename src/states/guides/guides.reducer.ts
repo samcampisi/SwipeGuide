@@ -6,6 +6,7 @@ import {
   FetchGuidesSuccess,
   FetchGuidesFailure,
   FetchGuideDetailSuccess,
+  LikeGuide,
 } from './guides.actions.types';
 
 export const guidesReducer: Reducer<GuidesState, GuidesActions> = (
@@ -60,6 +61,17 @@ export const guidesReducer: Reducer<GuidesState, GuidesActions> = (
         ...state,
         isLoadingGuides: false,
         error: action.payload.error,
+      };
+    case GuidesActionTypes.LIKE_GUIDE:
+      action = action as LikeGuide;
+
+      const likes = { ...state.likes };
+      const oldLikes = likes[action.payload.id] || 0;
+      likes[action.payload.id] = oldLikes + 1;
+
+      return {
+        ...state,
+        likes,
       };
     default:
       return state;

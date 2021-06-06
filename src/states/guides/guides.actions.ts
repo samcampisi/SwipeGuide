@@ -79,3 +79,8 @@ export const getGuideDetailFailure = (error: any): GuidesActions => ({
   type: GuidesActionTypes.FETCH_GUIDE_DETAIL_FAILURE,
   payload: { error },
 });
+
+export const likeGuide = (id: number): GuidesActions => ({
+  type: GuidesActionTypes.LIKE_GUIDE,
+  payload: { id },
+});

@@ -10,6 +10,7 @@ export enum GuidesActionTypes {
   FETCH_GUIDE_DETAIL = 'FETCH_GUIDE_DETAIL',
   FETCH_GUIDE_DETAIL_SUCCESS = 'FETCH_GUIDE_DETAIL_SUCCESS',
   FETCH_GUIDE_DETAIL_FAILURE = 'FETCH_GUIDE_DETAIL_FAILURE',
+  LIKE_GUIDE = 'LIKE_GUIDE',
 }
 
 export interface FetchGuidesRequest extends Action {
@@ -42,13 +43,21 @@ export interface FetchGuideDetailFailure extends Action {
   payload: { error: any };
 }
 
+export interface LikeGuide extends Action {
+  type: GuidesActionTypes.LIKE_GUIDE;
+  payload: {
+    id: number;
+  };
+}
+
 export type GuidesActions =
   | FetchGuidesRequest
   | FetchGuidesSuccess
   | FetchGuidesFailure
   | FetchGuideDetailRequest
   | FetchGuideDetailSuccess
-  | FetchGuideDetailFailure;
+  | FetchGuideDetailFailure
+  | LikeGuide;
 
 export type ThunkResult = ThunkAction<
   void,
