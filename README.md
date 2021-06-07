@@ -19,7 +19,10 @@ Made with React Native + TypeScript
 - `npm install`
 - Go to ios folder and install pod dependencies `cd ios && pod install` (If you don't have `Cocoapods` installed you can do so by running `sudo gem install cocoapods`)
 - Go back to the root directory `cd ..`
-- Start the metro bundler for the app to load the resources: `npm start` (or `npm start -- --reset-cache` if you want to reset cache)
+
+  - The android APK is available in `android/app/build/outputs/apk/debug`. You can run `npm run generate-apk` from your root folder to generate it.
+
+- DEV MODE ONLY: Start the metro bundler for the app to load the resources: `npm start` (or `npm start -- --reset-cache` if you want to reset cache)
 
 ## Running on dev mode on Android
 
